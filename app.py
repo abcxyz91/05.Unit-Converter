@@ -90,7 +90,11 @@ def convert_weight():
         """Try to convert and raise error if invalid value input"""
         try:
             result = float(value) * WEIGHT[convert_from] / WEIGHT[convert_to]
-            return render_template("result.html", value=value, result=result, convert_from=convert_from, convert_to=convert_to)
+            return render_template(
+                "weight.html", 
+                units=units, 
+                active_page="weight", 
+                value=value, result=result, convert_from=convert_from, convert_to=convert_to)
         except ValueError:
             return render_template("error.html")
     else:
@@ -106,10 +110,10 @@ def convert_temp():
     if request.method == "POST":
         """User reached route via POST (as by submitting a form via POST)"""
         """Validate user input"""
-        if not request.form.get("weight"):
+        if not request.form.get("temperature"):
             value = 1
         else:
-            value = request.form.get("weight")
+            value = request.form.get("temperature")
         if not request.form.get("convert_from"):
             return render_template("error.html")
         else:
@@ -141,7 +145,11 @@ def convert_temp():
                     result =  9/5 * (float(value) - 273.15) + 32
                 elif convert_to == "Kelvin":
                     result = float(value)
-            return render_template("result.html", value=value, result=result, convert_from=convert_from, convert_to=convert_to)
+            return render_template(
+                "temperature.html", 
+                units=units,
+                active_page="temperature",
+                value=value, result=result, convert_from=convert_from, convert_to=convert_to)
         except ValueError:
             return render_template("error.html")
     else:

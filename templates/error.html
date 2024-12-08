@@ -5,9 +5,9 @@
 {% endblock %}
 
 {% block main %}
-    <h3>An error occured when trying to convert. Please try again</h3>
-
-    <form action="/">
-        <input type="submit" value="Reset" />
-    </form>
+    <div class="text-center py-4">
+        <h4 class="text-danger mb-4">An error occurred when trying to convert</h4>
+        <p class="text-muted mb-4">Please try again with valid input values</p>
+        <button class="btn btn-secondary" onclick="window.location.href='/'">Return to Home</button>
+    </div>
 {% endblock %}
