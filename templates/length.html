@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Length
+{% endblock %}
+
+{% block main %}
+    {% if not result %}
+        <form action="/length" method="post">
+            <div class="mb-3">
+                <label for="length-input" class="form-label">Enter the length to convert</label>
+                <input type="number" class="form-control" id="length-input" name="length" step="any" min="0" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="convert-from" class="form-label">Unit to Convert from</label>
+                <select name="convert_from" id="convert-from" class="form-select" required>
+                    <option value="" disabled selected>Select an unit to convert from</option>
+                    {% for unit in units %}
+                        <option value="{{ unit }}">{{ unit }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="convert-to" class="form-label">Unit to Convert to</label>
+                <select name="convert_to" id="convert-to" class="form-select" required>
+                    <option value="" disabled selected>Select an unit to convert to</option>
+                    {% for unit in units %}
+                        <option value="{{ unit }}">{{ unit }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-convert">Convert</button>
+        </form>
+    {% else %}
+        <div class="mt-4">
+            <h4>Result of your calculation</h4>
+            <p class="fs-4">{{ value }} {{ convert_from }} = {{ result }} {{ convert_to }}</p>
+            <button class="btn btn-secondary" onclick="window.location.href='/length'">Reset</button>
+        </div>
+    {% endif %}
+{% endblock %}

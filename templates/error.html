@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Error
+{% endblock %}
+
+{% block main %}
+    <h3>An error occured when trying to convert. Please try again</h3>
+
+    <form action="/">
+        <input type="submit" value="Reset" />
+    </form>
+{% endblock %}

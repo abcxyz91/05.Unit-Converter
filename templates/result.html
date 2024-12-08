@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Length
+{% endblock %}
+
+{% block main %}
+    <h3>Result of your calculation</h3>
+    <h2>{{ value }} {{ convert_from }} = {{ result }} {{ convert_to }}</h2>
+
+    <form action="/">
+        <input type="submit" value="Reset" />
+    </form>
+{% endblock %}
