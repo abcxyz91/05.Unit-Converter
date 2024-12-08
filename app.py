@@ -1,4 +1,4 @@
-from flask import Flask, flash, redirect, render_template, request, session
+from flask import Flask, redirect, render_template, request
 
 """Initialize the webapp"""
 app = Flask(__name__)
